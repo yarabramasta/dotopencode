@@ -1,5 +1,13 @@
 # Android Agent Evaluation Tests
 
+## Fixture
+
+Use `eval/fixtures/android/`.
+
+Current external Android fixture workspace:
+
+- `~/Development/kopkarpay/member-app`
+
 ## 1. Kotlin Compile Error Diagnosis
 
 ### Objective

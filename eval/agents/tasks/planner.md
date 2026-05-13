@@ -1,5 +1,9 @@
 # Planner Evaluation Tests
 
+## Fixture
+
+Use `eval/fixtures/reviewer/` when the plan depends on a prepared diff or codebase shape.
+
 ## 1. Auth Migration Plan
 
 ### Objective

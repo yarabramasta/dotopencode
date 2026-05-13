@@ -1,5 +1,9 @@
 # Role Routing Test
 
+## Fixture
+
+Use `eval/fixtures/role-routing/`.
+
 ## Objective
 
 Verify primary `build` agent routes to right specialist.

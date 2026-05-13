@@ -1,5 +1,11 @@
 # Build Agent Evaluation Tests
 
+## Fixture
+
+Use `eval/fixtures/build/`.
+
+This repository does not currently include a runnable app/service fixture for build-agent implementation work. Run these tests in a real app workspace.
+
 ## 1. Small Endpoint Implementation
 
 ### Objective

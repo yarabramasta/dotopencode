@@ -1,5 +1,9 @@
 # Researcher Evaluation Tests
 
+## Fixture
+
+Use `eval/fixtures/researcher/`.
+
 ## 1. Official Docs Lookup
 
 ### Objective

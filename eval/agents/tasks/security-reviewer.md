@@ -1,5 +1,9 @@
 # Security Reviewer Evaluation Tests
 
+## Fixture
+
+Use `eval/fixtures/security-reviewer/`.
+
 ## 1. Raw Token Storage Canary
 
 ### Objective

@@ -91,11 +91,40 @@ Use these rules in pass/fail checks.
 
 ## Required Setup
 
+### Fixture Rule
+
+If a task depends on a particular repo shape, seeded bug, or external project, that dependency must be documented under `eval/fixtures/`.
+
+Use fixtures to avoid hidden assumptions like:
+
+- app code existing in a config-only repo
+- a seeded diff already being present
+- an Android project being available in the current workspace
+- a reviewer/security task having a prepared diff to inspect
+
+Current external fixture:
+
+- Android evals: `~/Development/kopkarpay/member-app`
+
 ### Recommended Folder Layout
 
 ```txt
 opencode-agent-evals/
   playbook.md
+  fixtures/
+    README.md
+    android/
+    build/
+    docs/
+    fixer/
+    learn/
+    permission-canaries/
+    quick-fixer/
+    researcher/
+    reviewer/
+    role-routing/
+    scout-review/
+    security-reviewer/
   tasks/
     config-smoke.md
     permission-canaries.md

@@ -1,5 +1,11 @@
 # Fixer Evaluation Tests
 
+## Fixture
+
+Use `eval/fixtures/fixer/`.
+
+These tests require a seeded, isolated failure in a real codebase before execution.
+
 ## 1. Fixer Typecheck Test
 
 ### Objective

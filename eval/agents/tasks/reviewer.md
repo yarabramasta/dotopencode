@@ -1,5 +1,9 @@
 # Reviewer Evaluation Tests
 
+## Fixture
+
+Use `eval/fixtures/reviewer/`.
+
 ## 1. Seeded Bug Review
 
 ### Objective

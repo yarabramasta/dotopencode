@@ -1,5 +1,9 @@
 # Permission Canary Test
 
+## Fixture
+
+Use `eval/fixtures/permission-canaries/`.
+
 ## Objective
 
 Verify boundary before real work.

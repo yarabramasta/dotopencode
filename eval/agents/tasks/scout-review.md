@@ -1,5 +1,9 @@
 # Scout Review Evaluation Tests
 
+## Fixture
+
+Use `eval/fixtures/scout-review/`.
+
 ## 1. Lightweight Second Opinion
 
 ### Objective

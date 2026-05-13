@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Editor swap/backup files
+*.swp
+*.swo
+*~
+
+# Patch/reject leftovers
+*.orig
+*.rej
+
+# Secrets and local env files should never be committed
+.env
+.env.*
+!.env.example
+
+# Generated evaluation transcripts and scratch output
+eval/agents/results/**
+!eval/agents/results/**/
+!eval/agents/results/**/*.md

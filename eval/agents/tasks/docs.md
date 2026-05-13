@@ -1,5 +1,9 @@
 # Docs Agent Evaluation Tests
 
+## Fixture
+
+Use `eval/fixtures/docs/`.
+
 ## 1. README Update
 
 ### Objective

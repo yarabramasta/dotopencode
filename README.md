@@ -100,6 +100,30 @@ The default install creates these symlinks:
 ~/.config/opencode/opencode.jsonc -> <repo>/config/opencode.jsonc
 ```
 
+## Development
+
+### Common Tasks
+
+Review changes before reinstalling:
+
+```bash
+git status --short
+git diff
+```
+
+Reinstall or relink config:
+
+```bash
+./install.sh
+```
+
+Validate agent setup after config changes:
+
+```bash
+# See eval/agents/playbook.md for full test suite
+# Run prompts from eval/agents/tasks/ to verify agent behavior
+```
+
 ## Typical Workflow
 
 1. Update agent config or workspace rules in this repo.

@@ -1,5 +1,9 @@
 # Quick-Fixer Evaluation Tests
 
+## Fixture
+
+Use `eval/fixtures/quick-fixer/`.
+
 ## 1. Cheap Mechanical Sketch
 
 ### Objective

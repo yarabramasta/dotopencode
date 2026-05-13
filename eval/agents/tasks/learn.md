@@ -1,5 +1,9 @@
 # Learn Agent Evaluation
 
+## Fixture
+
+Use `eval/fixtures/learn/`.
+
 ## Objective
 
 Confirm the `learn` agent behaves like a strict tutoring partner for learning new technologies, especially for comparison-heavy exploration.
