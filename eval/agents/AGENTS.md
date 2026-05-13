@@ -4,6 +4,7 @@
 
 - `build`: day-to-day coding. Default choice.
 - `ask`: simple Q&A and lightweight chat.
+- `learn`: technical tutor for learning new technologies through deep comparison, tradeoff analysis, and under-the-hood explanation.
 - `plan`: architecture, tradeoffs, refactors, migrations, hard ambiguity.
 - `deep-thinker`: hard debugging, high ambiguity, difficult implementation, security reasoning, final escalation.
 - `fixer`: formatting, imports, lint, type errors, small test fails, repetitive edits.

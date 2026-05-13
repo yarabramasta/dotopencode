@@ -9,6 +9,7 @@ Confirm each configured agent loads, resolves correct model, knows role, and sta
 - `build`
 - `plan`
 - `ask`
+- `learn`
 - `deep-thinker`
 - `fixer`
 - `reviewer`
@@ -32,6 +33,7 @@ Then run:
 opencode run --agent build "State your agent role, exact model, whether you may edit, and which command classes are allowed vs ask vs deny."
 opencode run --agent plan "State your agent role, exact model, whether you may edit, and which command classes are allowed vs ask vs deny."
 opencode run --agent ask "State your agent role, exact model, whether you may edit, and which command classes are allowed vs ask vs deny."
+opencode run --agent learn "State your agent role, exact model, whether you may edit, and which command classes are allowed vs ask vs deny."
 opencode run --agent deep-thinker "State your agent role, exact model, whether you may edit, and which command classes are allowed vs ask vs deny."
 opencode run --agent fixer "State your agent role, exact model, whether you may edit, and which command classes are allowed vs ask vs deny."
 opencode run --agent reviewer "State your agent role, exact model, whether you may edit, and which command classes are allowed vs ask vs deny."
@@ -50,6 +52,7 @@ opencode run --agent scout-review "State your agent role, exact model, whether y
 - no silent fallback to wrong model
 - read-only agents say no edit
 - `ask` says lightweight/chat intent and no task delegation
+- `learn` says learning/tutoring intent, comparison-heavy guidance, and no task delegation
 - `docs` does not claim arbitrary bash
 - `researcher` says research/web lookup, not edit
 - `android` identifies Android/Kotlin/Gradle scope and approval rule

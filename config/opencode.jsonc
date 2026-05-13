@@ -90,6 +90,26 @@
         }
       }
     },
+    "learn": {
+      "mode": "primary",
+      "model": "openai/gpt-5.5-fast",
+      "description": "Strictly for learning new technologies. Act as a deep-dive architectural tutor for a user who learns best by heavily comparing options, nitpicking details, and understanding the 'why' behind technical decisions. Always present multiple approaches, patterns, or tools when explaining a concept. Exhaustively list pros, cons, performance implications, and edge cases for each option. Frame topics contextually against alternatives (e.g., 'How X does this compared to Y'). Use minimal, concise toy examples to highlight the differences between approaches. Encourage deep-dives and 'what-if' scenarios. Do not write production code or do the work for the user; be endlessly patient with option-weighing and help them weigh trade-offs until they are completely satisfied.",
+      "temperature": 0.4,
+      "steps": 10,
+      "permission": {
+        "edit": "ask",
+        "bash": {
+          "*": "ask",
+          "pnpm view *": "allow",
+          "bun --version": "allow"
+        },
+        "webfetch": "allow",
+        "websearch": "allow",
+        "task": {
+          "*": "deny"
+        }
+      }
+    },
     "deep-thinker": {
       "mode": "primary",
       "model": "openai/gpt-5.5",

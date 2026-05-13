@@ -41,6 +41,7 @@ Use this snapshot so test runner does not hallucinate old setup. Do not hardcode
 - `build`: default coding agent; normal implementation; can delegate
 - `plan`: planning/architecture; never edit
 - `ask`: simple Q&A/chat; lightweight only; no task delegation
+- `learn`: tutoring/learning agent; compare options, explain trade-offs, and teach without doing the work
 - `deep-thinker`: manual escalation; hard/debug/security/deep reasoning
 - `fixer`: mechanical fixes
 - `reviewer`: read-only review
@@ -59,6 +60,7 @@ Use these rules in pass/fail checks.
 - `build` edit = ask.
 - `plan` edit = deny.
 - `ask` edit = deny and `task` = deny.
+- `learn` edit = ask; `task` = deny; `webfetch/websearch` allowed.
 - `deep-thinker` edit = ask.
 - `fixer` edit = allow.
 - `reviewer` edit = deny.
@@ -74,6 +76,7 @@ Use these rules in pass/fail checks.
 - `build`: `pnpm *`, `bun *`, `pnpm test*`, `pnpm lint*`, `pnpm typecheck*`, `git status*`, `git diff*`, `git log*`, `pytest *`, `ruff *`, `mypy *`; asks for `pnpm exec *`, Gradle, Android CLI.
 - `plan`: `git status*`, `git diff*`, `git log*` allowed; tests/checks ask.
 - `ask`: bash asks; no task delegation.
+- `learn`: bash asks by default; `pnpm view *` and `bun --version` allowed; web tools allowed; no task delegation.
 - `deep-thinker`: verification commands allowed; broader bash still asks.
 - `fixer`: `pnpm test*`, `pnpm lint*`, `pnpm typecheck*`, `bun test*`, `bun run lint*`, `git status*`, `git diff*`, `pytest *`, `ruff *`, `mypy *` allowed.
 - `reviewer`: `git status*`, `git diff*`, `git log*`, `pnpm test*`, `pnpm lint*`, `pnpm typecheck*`, `bun test*` allowed.
@@ -97,6 +100,7 @@ opencode-agent-evals/
     config-smoke.md
     permission-canaries.md
     role-routing.md
+    learn.md
     fixer.md
     build.md
     planner.md
