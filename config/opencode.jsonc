@@ -1,0 +1,316 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "disabled_providers": [],
+  "plugin": [
+    "@warp-dot-dev/opencode-warp",
+    "opencode-snip@latest",
+    "opencode-history-search"
+  ],
+  "shell": "zsh",
+  "model": "openai/gpt-5.4",
+  "agent": {
+    "build": {
+      "mode": "primary",
+      "model": "openai/gpt-5.4",
+      "description": "Default coding agent. Use for day-to-day TypeScript, Bun, Hono, ElysiaJS, backend work, focused implementation, debugging, and normal coding tasks. Prefer delegating mechanical fixes to fixer, documentation to docs, reviews to reviewer, external lookup to researcher, and Android/Kotlin work to android.",
+      "temperature": 0.2,
+      "steps": 20,
+      "permission": {
+        "edit": "ask",
+        "bash": {
+          "*": "ask",
+          "pnpm *": "allow",
+          "bun *": "allow",
+          "bun test*": "allow",
+          "pnpm test*": "allow",
+          "pnpm lint*": "allow",
+          "pnpm typecheck*": "allow",
+          "pnpm exec *": "ask",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "pytest *": "allow",
+          "ruff *": "allow",
+          "mypy *": "allow",
+          "./gradlew *": "ask",
+          "gradle *": "ask",
+          "android-cli *": "ask",
+          "android *": "ask",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        },
+        "task": {
+          "*": "allow"
+        }
+      }
+    },
+    "plan": {
+      "mode": "primary",
+      "model": "github-copilot/gemini-3.1-pro-preview",
+      "description": "Read-only planning and architecture agent. Use for system design, refactor plans, migration plans, risk analysis, and breaking large work into safe steps. Never edit code.",
+      "temperature": 0.1,
+      "steps": 20,
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "ask",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "pnpm test*": "ask",
+          "pnpm lint*": "ask",
+          "pnpm typecheck*": "ask",
+          "bun test*": "ask",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        },
+        "task": {
+          "*": "allow"
+        }
+      }
+    },
+    "ask": {
+      "mode": "primary",
+      "model": "openai/gpt-5.4-mini",
+      "description": "Simple question answering and chat agent. Use this for general questions, conversational interactions, or when a lightweight response is needed without executing complex tool workflows.",
+      "temperature": 0.7,
+      "steps": 5,
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "ask",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        },
+        "task": {
+          "*": "deny"
+        }
+      }
+    },
+    "deep-thinker": {
+      "mode": "primary",
+      "model": "openai/gpt-5.5",
+      "description": "Manual-only escalation agent. Use only when explicitly selected for difficult debugging, high-ambiguity architecture, hard implementation, security-sensitive reasoning, or final deep reasoning tasks. Do not use for routine work.",
+      "temperature": 0.1,
+      "steps": 12,
+      "permission": {
+        "edit": "ask",
+        "bash": {
+          "*": "ask",
+          "pnpm *": "ask",
+          "bun *": "ask",
+          "bun test*": "allow",
+          "pnpm test*": "allow",
+          "pnpm lint*": "allow",
+          "pnpm typecheck*": "allow",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "./gradlew *": "ask",
+          "gradle *": "ask",
+          "android-cli *": "ask",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        },
+        "task": {
+          "*": "allow"
+        }
+      }
+    },
+    "fixer": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.3-codex-spark",
+      "description": "Cheap mechanical fixer. Use for formatting, imports, lint failures, type errors, small test failures, simple refactors, and repetitive edits. Avoid architecture changes, broad rewrites, dependency changes, database changes, and Android-specific work unless explicitly requested.",
+      "temperature": 0.1,
+      "steps": 10,
+      "permission": {
+        "edit": "allow",
+        "bash": {
+          "*": "ask",
+          "pnpm test*": "allow",
+          "pnpm lint*": "allow",
+          "pnpm typecheck*": "allow",
+          "bun test*": "allow",
+          "bun run lint*": "allow",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "pytest *": "allow",
+          "ruff *": "allow",
+          "mypy *": "allow",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        }
+      }
+    },
+    "reviewer": {
+      "mode": "subagent",
+      "model": "github-copilot/gemini-3-flash-preview",
+      "description": "Read-only reviewer. Use for checking diffs, correctness, bugs, missing tests, regressions, risk, auth/security issues, and project convention drift. Provide actionable review notes. Do not edit.",
+      "temperature": 0,
+      "steps": 12,
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "ask",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "pnpm test*": "allow",
+          "pnpm lint*": "allow",
+          "pnpm typecheck*": "allow",
+          "bun test*": "allow",
+          "./gradlew test*": "ask",
+          "./gradlew lint*": "ask",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        }
+      }
+    },
+    "security-reviewer": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.5",
+      "description": "Read-only security and auth reviewer. Use for passkeys, sessions, refresh-token rotation, recovery codes, audit events, migrations, authorization, secrets, and destructive operations. Do not edit.",
+      "temperature": 0,
+      "steps": 18,
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "ask",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "pnpm test*": "ask",
+          "pnpm lint*": "ask",
+          "pnpm typecheck*": "ask",
+          "bun test*": "ask",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        }
+      }
+    },
+    "docs": {
+      "mode": "subagent",
+      "model": "github-copilot/claude-haiku-4.5",
+      "description": "Documentation writer. Use for README updates, comments, docstrings, changelogs, migration notes, examples, and explanatory writing. Follow the existing project tone and structure.",
+      "temperature": 0.3,
+      "steps": 8,
+      "permission": {
+        "edit": "allow",
+        "bash": {
+          "*": "deny",
+          "git diff*": "allow",
+          "git status*": "allow",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        }
+      }
+    },
+    "researcher": {
+      "mode": "subagent",
+      "model": "github-copilot/gemini-3.1-pro-preview",
+      "description": "Research agent. Use for official documentation, APIs, libraries, dependency behavior, error messages, implementation references, Hono/Elysia/Bun/pnpm behavior, and Android CLI agent/tooling references. Summarize findings before recommending changes. Do not edit.",
+      "temperature": 0.2,
+      "steps": 10,
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "ask",
+          "pnpm view *": "ask",
+          "pnpm why *": "ask",
+          "bun --version": "allow",
+          "pnpm --version": "allow",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        },
+        "webfetch": "allow",
+        "websearch": "allow"
+      }
+    },
+    "android": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "description": "Android specialist. Use for Kotlin, Android project structure, Gradle, Jetpack Compose when present, Android CLI agent/tooling, build/test/debug workflows, and Android-specific implementation. Ask before running heavy Gradle, emulator, device, install, or destructive commands.",
+      "temperature": 0.2,
+      "steps": 14,
+      "permission": {
+        "edit": "ask",
+        "bash": {
+          "*": "ask",
+          "./gradlew test*": "allow",
+          "./gradlew lint*": "allow",
+          "./gradlew assembleDebug*": "ask",
+          "./gradlew connectedAndroidTest*": "ask",
+          "./gradlew installDebug*": "ask",
+          "gradle test*": "allow",
+          "gradle lint*": "allow",
+          "android-cli *": "ask",
+          "android *": "ask",
+          "adb *": "ask",
+          "emulator *": "ask",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        },
+        "task": {
+          "*": "allow"
+        }
+      }
+    },
+    "quick-fixer": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.3-codex-spark",
+      "description": "Short-task coding helper. Use manually for small, non-sensitive mechanical tasks: tiny refactors, simple implementation sketches, import fixes, formatting suggestions, small test/lint issues, and quick alternative solutions. Keep scope narrow. Do not use for secrets, auth/security, private business logic, broad rewrites, long-running tasks, or architecture decisions.",
+      "temperature": 0.2,
+      "steps": 6,
+      "permission": {
+        "edit": "ask",
+        "bash": {
+          "*": "ask",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "pnpm test*": "ask",
+          "pnpm lint*": "ask",
+          "pnpm typecheck*": "ask",
+          "bun test*": "ask",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        }
+      }
+    },
+    "scout-review": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.3-codex-spark",
+      "description": "Short-task read-only scout reviewer. Use manually for quick, non-sensitive second opinions: small diff review, simple bug-spotting, naming feedback, edge-case brainstorming, and lightweight risk checks. Do not use for secrets, auth/security, private business logic, long reviews, architecture decisions, or production-critical approval.",
+      "temperature": 0.1,
+      "steps": 6,
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "ask",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "pnpm test*": "ask",
+          "pnpm lint*": "ask",
+          "pnpm typecheck*": "ask",
+          "bun test*": "ask",
+          "npm *": "deny",
+          "npx *": "deny",
+          "yarn *": "deny"
+        }
+      }
+    }
+  }
+}
