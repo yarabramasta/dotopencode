@@ -257,7 +257,7 @@
     },
     "android": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "github-copilot/gemini-3-flash-preview",
       "description": "Android specialist. Use for Kotlin, Android project structure, Gradle, Jetpack Compose when present, Android CLI agent/tooling, build/test/debug workflows, and Android-specific implementation. Ask before running heavy Gradle, emulator, device, install, or destructive commands.",
       "temperature": 0.2,
       "steps": 14,
