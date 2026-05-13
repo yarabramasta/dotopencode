@@ -5,6 +5,7 @@
 ### Core agents
 - **build**: Day-to-day coding. Default choice.
 - **ask**: Simple question answering chatbot for lightweight conversational tasks to save tokens.
+- **learn**: Technical tutor for deep comparisons, tradeoff analysis, and learning-focused explanations.
 - **plan**: Architecture, tradeoffs, refactor plans, migrations, high-ambiguity, big work breakdowns. Read first, avoid editing.
 - **deep-thinker**: Hard debugging, high-ambiguity design, difficult impl, security reasoning, final escalation. On request only.
 
