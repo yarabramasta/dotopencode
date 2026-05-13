@@ -1,3 +1,5 @@
 # Fixer Fixtures
 
-Seed a small, isolated type/lint/test failure in a real codebase before running fixer evals.
+Included fixture:
+
+- `tiny-failure/` - isolated TypeScript workspace with small seeded type and test failures for mechanical repair evals.

@@ -19,3 +19,4 @@
 eval/agents/results/**
 !eval/agents/results/**/
 !eval/agents/results/**/*.md
+.opencode/

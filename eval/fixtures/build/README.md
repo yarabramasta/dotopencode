@@ -1,5 +1,7 @@
 # Build Fixtures
 
-Use a real app or service workspace with source files, package manifest, and tests.
+Use a small runnable workspace with source files, package manifest, and tests.
 
-This repository currently does not ship an implementation fixture for build tasks.
+Included fixture:
+
+- `tiny-service/` - minimal pnpm TypeScript service with one passing test and one small implementation task target.
