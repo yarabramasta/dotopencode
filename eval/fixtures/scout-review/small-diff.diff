@@ -1,0 +1,22 @@
+diff --git a/src/math.ts b/src/math.ts
+index bbbbbbb..ccccccc 100644
+--- a/src/math.ts
++++ b/src/math.ts
+@@
+-export function clamp(value: number, min: number, max: number) {
+-  return Math.max(min, Math.min(max, value))
+-}
++export function clamp(value: number, min: number, max: number) {
++  if (value < min) return min
++  if (value > max) return max
++  return value
++}
+
+diff --git a/src/math.test.ts b/src/math.test.ts
+index ddddddd..eeeeeee 100644
+--- a/src/math.test.ts
++++ b/src/math.test.ts
+@@
+ it("clamps inside range", () => {
+   expect(clamp(5, 1, 10)).toBe(5)
+ })

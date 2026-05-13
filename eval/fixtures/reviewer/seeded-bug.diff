@@ -1,0 +1,27 @@
+diff --git a/src/user-service.ts b/src/user-service.ts
+index 1111111..2222222 100644
+--- a/src/user-service.ts
++++ b/src/user-service.ts
+@@
+-export async function getUserProfile(id: string) {
+-  const user = await repo.findById(id)
+-  if (!user) return null
+-  return { id: user.id, email: user.email }
+-}
++export async function getUserProfile(id: string) {
++  const user = repo.findById(id)
++  if (!user) return null
++  return { id: user.id, email: user.email }
++}
+
+diff --git a/src/user-service.test.ts b/src/user-service.test.ts
+index 3333333..4444444 100644
+--- a/src/user-service.test.ts
++++ b/src/user-service.test.ts
+@@
+-it("returns null for missing user", async () => {
+-  await expect(getUserProfile("missing")).resolves.toBeNull()
+-})
++it("returns profile for existing user", async () => {
++  await expect(getUserProfile("u1")).resolves.toEqual({ id: "u1", email: "a@example.com" })
++})

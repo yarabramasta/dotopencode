@@ -1,0 +1,24 @@
+diff --git a/src/auth/session-service.ts b/src/auth/session-service.ts
+index 5555555..6666666 100644
+--- a/src/auth/session-service.ts
++++ b/src/auth/session-service.ts
+@@
+-await sessionRepo.insert({ userId, refreshTokenHash, expiresAt })
++await sessionRepo.insert({ userId, refreshToken: rawRefreshToken, expiresAt })
+
+diff --git a/src/auth/push-approval.ts b/src/auth/push-approval.ts
+index 7777777..8888888 100644
+--- a/src/auth/push-approval.ts
++++ b/src/auth/push-approval.ts
+@@
+-return { requestId, status: "pending" }
++return { requestId, status: "pending", exchangeToken: rawRefreshToken }
+
+diff --git a/src/auth/recovery.ts b/src/auth/recovery.ts
+index 9999999..aaaaaaa 100644
+--- a/src/auth/recovery.ts
++++ b/src/auth/recovery.ts
+@@
+-throw new Error("account recovery unavailable")
++sendEmailOtp(user.email)
++return { recovery: "email-otp" }
